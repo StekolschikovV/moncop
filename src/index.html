@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Moncop</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <style>
+    #loader {
+      color: #198754;
+      font-family: sans-serif;
+      /*height: 5vh;*/
+      left: 50%;
+      overflow-x: hidden;
+      padding-top: 7vh;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+    }
+    #loader:before {
+      animation: left-to-right 3s alternate infinite linear;
+      background-image: linear-gradient(to right, transparent, #198754, transparent);
+      content: "";
+      height: 5vh;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    #loader:after {
+      background-image: repeating-linear-gradient(90deg, white, white 1vw, transparent 1vw, transparent 10vw);
+      content: "";
+      height: 5vh;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    @keyframes left-to-right {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    app-root {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">Loading...</div>
+  <app-root></app-root>
+</body>
+</html>

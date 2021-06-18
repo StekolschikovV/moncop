@@ -1,0 +1,87 @@
+<div class="row app-table">
+
+  <div class="col-md-6">
+    <div class="card mb-3 overflow-auto" *ngIf="(connection1Data.length > 0); else connection1DataNodData">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th *ngFor="let key of connection1Keys">{{key}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let line of connection1Data; let index = index">
+            <td *ngFor="let val of line" class="{{val.status}}">
+
+              <div class="controls">
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  (click)="remove(connectionNameEnum.connection1, index)">
+                  <i class="bi bi-bucket-fill"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm m-1"
+                  (click)="copy(connectionNameEnum.connection1, index)">
+                  <i class="bi bi-arrow-right-square-fill"></i>
+                </button>
+              </div>
+
+              <div class="table__data">{{val.data}}</div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #connection1DataNodData>
+      <div class="text-center">
+        No data
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card mb-3 overflow-auto" *ngIf="(connection2Data.length > 0); else connection2DataNodData">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th *ngFor="let key of connection2Keys">{{key}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let line of connection2Data; let index = index">
+
+            <td *ngFor="let val of line" class="{{val.status}}">
+
+              <div class="controls">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm m-1"
+                  (click)="copy(connectionNameEnum.connection2, index)">
+                  <i class="bi bi-arrow-left-square-fill"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  (click)="remove(connectionNameEnum.connection2, index)">
+                  <i class="bi bi-bucket-fill"></i>
+                </button>
+              </div>
+
+              <div class="table__data">{{val.data}}</div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #connection2DataNodData>
+      <div class="text-center">
+        No data
+      </div>
+    </ng-template>
+  </div>
+</div>

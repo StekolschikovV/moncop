@@ -1,0 +1,49 @@
+.app-table {
+
+  .card-body {
+    max-height: calc(100vh - 380px) !important;
+  }
+  .table {
+
+
+    &__data {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 160px;
+      height: 1.2em;
+      white-space: nowrap;
+    }
+
+    .not-match-without-prime-key {
+      background: yellow;
+    }
+    .not-match {
+      background: green;
+    }
+
+    td {
+      position: relative;
+      &:hover {
+        .controls {
+          opacity: 1;
+        }
+      }
+      .controls {
+        position: absolute;
+        top: 0;
+        .btn {
+          padding: .05rem 0.4rem;
+          i {
+            font-size: 12px;
+          }
+          &:last-child {
+            left: 20px;
+          }
+        }
+        opacity: 0;
+      }
+    }
+  }
+}
+
+

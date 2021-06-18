@@ -1,0 +1,93 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card mb-3 mt-3 overflow-hidden">
+      <div class="card-header">
+        Database 1
+      </div>
+      <div class="card-body">
+        <form [formGroup]="connection1Form">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="url" formControlName="url">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="database" formControlName="database">
+          </div>
+          <div>
+            <input type="text" class="form-control" placeholder="collection" formControlName="collection">
+          </div>
+        </form>
+      </div>
+      <div class="card-footer small text-muted row">
+        <div class="col-11 d-grid gap-2 d-md-flex ">
+          <button type="button" class="btn btn-primary btn-sm" (click)="load(connectionNameEnum.connection1)">
+            <i class="bi bi-arrow-repeat"></i>
+            <span class="ms-1">Load</span>
+          </button>
+          <button type="button" class="btn btn-warning btn-sm" (click)="check('connection1')">
+            <i class="bi bi-bullseye"></i>
+            <span class="ms-1">Check</span>
+          </button>
+        </div>
+        <div class="col-1 text-end align-self-center">
+          <i
+            class="bi bi-circle-fill"
+            [class.text-danger]="connection1Status=== 'offline'"
+            [class.text-success]="connection1Status === 'online'"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card mb-4 mt-3 overflow-hidden">
+      <div class="card-header">
+        Database 2
+      </div>
+      <div class="card-body">
+        <form [formGroup]="connection2Form">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="url" formControlName="url">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="database" formControlName="database">
+          </div>
+          <div>
+            <input type="text" class="form-control" placeholder="collection" formControlName="collection">
+          </div>
+        </form>
+      </div>
+      <div class="card-footer small text-muted row">
+        <div class="col-11 d-grid gap-2 d-md-flex ">
+          <button type="button" class="btn btn-primary btn-sm" (click)="load(connectionNameEnum.connection2)">
+            <i class="bi bi-arrow-repeat"></i>
+            <span class="ms-1">Load</span>
+          </button>
+          <button type="button" class="btn btn-warning btn-sm" (click)="check('connection2')">
+            <i class="bi bi-bullseye"></i>
+            <span class="ms-1">Check</span>
+          </button>
+        </div>
+        <div class="col-1 text-end align-self-center">
+          <i
+            class="bi bi-circle-fill"
+            [class.text-danger]="connection2Status=== 'offline'"
+            [class.text-success]="connection2Status === 'online'"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="data-table-primary-key">prime key</label>
+      <select class="form-select form-select-sm" id="data-table-primary-key" (change)="setPrimeKey($event)">
+        <option>Select prime key...</option>
+        <option *ngFor="let key of keys$ | async" [value]="key">{{key}}</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
